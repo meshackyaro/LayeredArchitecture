@@ -1,0 +1,21 @@
+package com.myworkspace.notesManagementServiceApp.data.repositories;
+
+import com.myworkspace.notesManagementServiceApp.data.model.Note;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@SpringBootTest
+public class NoteRepositoryTest {
+    @Autowired
+    NoteRepository noteRepository;
+    @Test
+    public void noteRepositoryTest() {
+        Note note = new Note();
+        noteRepository.save(note);
+        int currentNotes = noteRepository.findAll().size();
+        assertEquals(currentNotes, noteRepository.count());
+    }
+
+}
