@@ -13,6 +13,7 @@ public class UserRepositoryTest {
     UserRepository userRepository;
     @Test
     public void userRepositoryTest() {
+        userRepository.deleteAll();
         User user = new User();
         userRepository.save(user);
         int currentUsers = userRepository.findAll().size();

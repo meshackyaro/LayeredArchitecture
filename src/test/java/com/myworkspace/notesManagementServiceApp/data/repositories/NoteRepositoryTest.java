@@ -12,6 +12,7 @@ public class NoteRepositoryTest {
     NoteRepository noteRepository;
     @Test
     public void noteRepositoryTest() {
+        noteRepository.deleteAll();
         Note note = new Note();
         noteRepository.save(note);
         int currentNotes = noteRepository.findAll().size();
